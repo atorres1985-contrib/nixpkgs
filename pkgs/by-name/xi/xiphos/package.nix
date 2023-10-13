@@ -1,5 +1,5 @@
-{ stdenv
-, lib
+{ lib
+, stdenv
 , fetchFromGitHub
 , fetchpatch
 , appstream-glib
@@ -28,30 +28,30 @@
 , zip
 }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "xiphos";
   version = "4.2.1";
 
   src = fetchFromGitHub {
     owner = "crosswire";
     repo = "xiphos";
-    rev = version;
+    rev = finalAttrs.version;
     hash = "sha256-H5Q+azE2t3fgu77C9DxrkeUCJ7iJz3Cc91Ln4dqLvD8=";
   };
 
   patches = [
+    # Fix D-Bus build
+    # https://github.com/crosswire/xiphos/pull/1103
+    ./0001-Add-dbus-glib-dependency-to-main.patch
+
     # GLIB_VERSION_MIN_REQUIRED is not defined.
     # https://github.com/crosswire/xiphos/issues/1083#issuecomment-820304874
     (fetchpatch {
       name ="xiphos-glibc.patch";
       url = "https://aur.archlinux.org/cgit/aur.git/plain/xiphos-glibc.patch?h=xiphos&id=bb816f43ba764ffac1287ab1e2a649c2443e3ce8";
-      sha256 = "he3U7phU2/QCrZidHviupA7YwzudnQ9Jbb8eMZw6/ck=";
+      hash = "sha256-he3U7phU2/QCrZidHviupA7YwzudnQ9Jbb8eMZw6/ck=";
       extraPrefix = "";
     })
-
-    # Fix D-Bus build
-    # https://github.com/crosswire/xiphos/pull/1103
-    ./0001-Add-dbus-glib-dependency-to-main.patch
   ];
 
   nativeBuildInputs = [
@@ -86,7 +86,7 @@ stdenv.mkDerivation rec {
 
   cmakeFlags = [
     # WebKit-based editor does not build.
-    "-DGTKHTML=ON"
+    (lib.cmakeBool "GTKHTML" true)
   ];
 
   preConfigure =  ''
@@ -96,17 +96,18 @@ stdenv.mkDerivation rec {
     export SWORD_HOME=${sword};
   '';
 
-  meta = with lib; {
+  meta = {
     description = "A GTK Bible study tool";
     longDescription = ''
-      Xiphos (formerly known as GnomeSword) is a Bible study tool
-      written for Linux, UNIX, and Windows using GTK, offering a rich
-      and featureful environment for reading, study, and research using
-      modules from The SWORD Project and elsewhere.
+      Xiphos (formerly known as GnomeSword) is a Bible study tool written for
+      Linux, UNIX, and Windows using GTK, offering a rich and featureful
+      environment for reading, study, and research using modules from The SWORD
+      Project and elsewhere.
     '';
     homepage = "https://www.xiphos.org/";
-    license = licenses.gpl2Plus;
-    maintainers = [ maintainers.AndersonTorres ];
-    platforms = platforms.linux;
+    license = lib.licenses.gpl2Plus;
+    mainProgram = "xiphos";
+    maintainers = [ lib.maintainers.AndersonTorres ];
+    platforms = lib.platforms.unix;
   };
-}
+})
