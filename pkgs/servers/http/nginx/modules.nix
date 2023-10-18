@@ -24,7 +24,6 @@
 , luajit
 , msgpuck
 , openssl
-, opentracing-cpp
 , pam
 , psol
 , which
@@ -530,28 +529,6 @@ let self = {
       description = "Subset of the JavaScript language that allows extending nginx functionality";
       homepage = "https://nginx.org/en/docs/njs/";
       license = with licenses; [ bsd2 ];
-      maintainers = with maintainers; [ ];
-    };
-  };
-
-  opentracing = {
-    name = "opentracing";
-    src =
-      let src' = fetchFromGitHub {
-        name = "opentracing";
-        owner = "opentracing-contrib";
-        repo = "nginx-opentracing";
-        rev = "v0.10.0";
-        sha256 = "1q234s3p55xv820207dnh4fcxkqikjcq5rs02ai31ylpmfsf0kkb";
-      };
-      in "${src'}/opentracing";
-
-    inputs = [ opentracing-cpp ];
-
-    meta = with lib; {
-      description = "Enable requests served by nginx for distributed tracing via The OpenTracing Project";
-      homepage = "https://github.com/opentracing-contrib/nginx-opentracing";
-      license = with licenses; [ asl20 ];
       maintainers = with maintainers; [ ];
     };
   };
