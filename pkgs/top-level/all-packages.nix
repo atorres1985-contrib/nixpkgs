@@ -24133,7 +24133,6 @@ with pkgs;
   nanopb = callPackage ../development/libraries/nanopb { };
   nanopbMalloc = callPackage ../development/libraries/nanopb { mallocBuild = true; };
 
-  gnupth = callPackage ../development/libraries/pth { };
   pth = if stdenv.hostPlatform.isMusl then npth else gnupth;
 
   pslib = callPackage ../development/libraries/pslib { };
