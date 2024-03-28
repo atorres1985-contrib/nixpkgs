@@ -11256,8 +11256,6 @@ with pkgs;
 
   npiet = callPackage ../development/interpreters/npiet { };
 
-  npth = callPackage ../development/libraries/npth { };
-
   nmap = callPackage ../tools/security/nmap { };
 
   nmap-formatter = callPackage ../tools/security/nmap-formatter { };
