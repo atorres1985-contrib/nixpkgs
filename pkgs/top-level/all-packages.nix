@@ -24187,10 +24187,6 @@ with pkgs;
 
   SDL = SDL_classic;
 
-  SDL2 = callPackage ../by-name/sd/SDL2/package.nix {
-    inherit (darwin.apple_sdk.frameworks) AudioUnit Cocoa CoreAudio CoreServices ForceFeedback OpenGL;
-  };
-
   sdrplay = callPackage ../applications/radio/sdrplay { };
 
   sdr-j-fm = libsForQt5.callPackage ../applications/radio/sdr-j-fm { };
