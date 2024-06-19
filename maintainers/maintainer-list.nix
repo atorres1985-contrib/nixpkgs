@@ -21144,6 +21144,11 @@
     github = "viric";
     githubId = 66664;
     name = "Lluís Batlle i Rossell";
+    inactivityReason = ''
+      No new activity since at least 2018-07-22.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   virusdave = {
     email = "dave.nicponski@gmail.com";
