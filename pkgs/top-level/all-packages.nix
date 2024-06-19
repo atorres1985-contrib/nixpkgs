@@ -33781,7 +33781,7 @@ with pkgs;
 
   qmediathekview = libsForQt5.callPackage ../applications/video/qmediathekview { };
 
-  qmplay2 = libsForQt5.callPackage ../applications/video/qmplay2 { };
+  qmplay2 = callPackage ../applications/video/qmplay2 { };
 
   qmidiarp = callPackage ../applications/audio/qmidiarp { };
 
