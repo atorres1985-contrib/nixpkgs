@@ -392,6 +392,12 @@
     github = "abbradar";
     githubId = 1174810;
     name = "Nikolay Amiantov";
+    inactivityReason = ''
+      Self-imposed retirement. Details at:
+      https://github.com/NixOS/nixpkgs/issues/88867#issuecomment-2106134035
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   abdiramen = {
     email = "abdirahman.osmanthus@gmail.com";
