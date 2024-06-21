@@ -4101,6 +4101,11 @@
     github = "cpages";
     githubId = 411324;
     name = "Carles Pagès";
+    inactivityReason = ''
+      No new activity since at least 2021-01-16.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   cpcloud = {
     name = "Phillip Cloud";
