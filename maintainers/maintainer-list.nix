@@ -16685,6 +16685,11 @@
     github = "rasendubi";
     githubId = 1366419;
     name = "Alexey Shmalko";
+    inactivityReason = ''
+      No new activity since at least 2020-03-10.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   raskin = {
     email = "7c6f434c@mail.ru";
