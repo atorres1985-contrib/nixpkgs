@@ -11693,6 +11693,11 @@
     github = "lovek323";
     githubId = 265084;
     name = "Jason O'Conal";
+    inactivityReason = ''
+      No new activity since at least 2022-12-12.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   lovesegfault = {
     email = "meurerbernardo@gmail.com";
