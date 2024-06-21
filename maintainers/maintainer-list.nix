@@ -3754,6 +3754,11 @@
     github = "cko";
     githubId = 68239;
     name = "Christine Koppelt";
+    inactivityReason = ''
+      No new activity since at least 2019-12-11.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   clacke = {
     email = "claes.wallin@greatsinodevelopment.com";
