@@ -21323,6 +21323,11 @@
     github = "vyp";
     githubId = 3889405;
     name = "vyp";
+    inactivityReason = ''
+      No new activity since at least 2021-08-05.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   wackbyte = {
     name = "wackbyte";
