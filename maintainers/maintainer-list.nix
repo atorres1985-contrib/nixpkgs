@@ -21288,6 +21288,11 @@
     github = "vrthra";
     githubId = 70410;
     name = "Rahul Gopinath";
+    inactivityReason = ''
+      No new activity since at least 2017-04-10.
+
+      Registered at 2024-06-19 by AndersonTorres.
+    '';
   };
   vskilet = {
     email = "victor@sene.ovh";
